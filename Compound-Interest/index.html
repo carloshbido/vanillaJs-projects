@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest</title>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+    <div class="container">
+        <form id="form">
+            <div class="form-group">
+                <label for="initial-value">Inital Value</label>
+                <input type="number" name="initial-value" id="initial-value" min=0>
+            </div>
+
+            <div class="form-group">
+                <label for="monthly-interest">Monthly Interest</label>
+                <input type="number" name="monthly-interest" id="monthly-interest" min=0>
+            </div>
+
+            <div class="form-group">
+                <label for="number-months">Number of Months</label>
+                <input type="number" name="number-months" id="number-months" min=0>
+            </div>
+
+            <div class="form-group">
+            <button type="submit">Generate</button>
+            <div>
+        </form>
+
+        <div class="results">
+        </div>
+    </div>
+    
+    <script src="./assets/script.js"></script>
+</body>
+</html>
