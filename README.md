@@ -1,4 +1,6 @@
 # VanillaJs-WebProjects
-- All my vanilla projects 
+All my vanilla projects 
 
-In Construction
+## Projects in alphabetical order
+
+
