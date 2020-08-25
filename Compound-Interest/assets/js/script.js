@@ -1,5 +1,4 @@
 var form = document.getElementById('form');
-
 form.addEventListener('submit', handle);
 
 function handle(e) {
@@ -13,9 +12,12 @@ function generateResults(){
     let monthlyInterest = getNumbers('monthly-interest');
     let totalLine;
     let results = [];
-
     let countMounth = 1;
-    //Main results
+
+    //Total applied without interest 
+    let totalApplied = initialValue * numberMonths;
+
+    //Array results
     for(countMounth; countMounth <= numberMonths; countMounth++) {
         totalLine = initialValue + ((initialValue * monthlyInterest) / 100)
         results.push(
@@ -26,11 +28,16 @@ function generateResults(){
         initialValue = totalLine;
     }
 
-    //Sum de total
-    let resultTotalLine = results.reduce((total, results) => total + results.totalLine, 0);
-
     console.log(results);
-    console.log(Number(resultTotalLine));
+
+    //Total applied with interest
+    let resultTotalLine = results.reduce((total, result) => total + result.totalLine, 0);
+    console.log(`Total aplicado: ${Number(totalApplied).toFixed(2)}`);
+    console.log(`Total resgatado: ${Number(resultTotalLine).toFixed(2)}`);
+
+    //Total gain
+    let gainResults = Number(resultTotalLine).toFixed(2) - Number(totalApplied).toFixed(2);
+    console.log(`Total de juros ganho: ${Number(gainResults).toFixed(2)}`);
 }
 
 function getNumbers(id) {
