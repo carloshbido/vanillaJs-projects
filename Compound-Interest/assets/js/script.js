@@ -4,27 +4,33 @@ form.addEventListener('submit', handle);
 
 function handle(e) {
     e.preventDefault();
-    doSubmit();
+    generateResults();
 }
 
-function doSubmit(){
+function generateResults(){
+    let numberMonths = getNumbers('number-months');
     let initialValue = getNumbers('initial-value');
-    let monthlyInterest = getNumbers('monthly-interest')
-    let numberMonths = getNumbers('number-months')
-
-    let countMounth = 1;
+    let monthlyInterest = getNumbers('monthly-interest');
+    let totalLine;
     let results = [];
 
+    let countMounth = 1;
+    //Main results
     for(countMounth; countMounth <= numberMonths; countMounth++) {
-        results.push(initialValue.toFixed(2));
-        initialValue = initialValue + ((initialValue * monthlyInterest) / 100);
+        totalLine = initialValue + ((initialValue * monthlyInterest) / 100)
+        results.push(
+            {initialValue: Number(initialValue.toFixed(2)), 
+             monthlyInterest, 
+             totalLine: Number(totalLine.toFixed(2))}
+            )
+        initialValue = totalLine;
     }
 
-    console.log(results);
+    //Sum de total
+    let resultTotalLine = results.reduce((total, results) => total + results.totalLine, 0);
 
-    console.log(initialValue)
-    console.log(monthlyInterest)
-    console.log(numberMonths)
+    console.log(results);
+    console.log(Number(resultTotalLine));
 }
 
 function getNumbers(id) {
