@@ -55,3 +55,27 @@ h1 {
     height: 45px;
     cursor: pointer;
 }
+
+#results,
+#results-table {
+    background: #1A1A1A;
+    padding:20px;
+    margin-top: 30px;
+    border-radius: 5px;
+    display: none;
+}
+
+#results > p > span {
+    color: #586ff0;
+    font-weight: bold;
+}
+
+table{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+table > thead > tr > th{
+    padding-bottom: 10px;
+}
