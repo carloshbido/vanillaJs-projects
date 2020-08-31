@@ -28,14 +28,16 @@ function generateResults(){
     //Array results
     for(countMounth; countMounth <= numberMonths; countMounth++) {
 
-        totalLine = initialValue + initialContribution + (((initialValue + initialContribution) * monthlyInterest) / 100)
+        monthValue = initialValue + initialContribution;
+        totalLine = monthValue + (((monthValue) * monthlyInterest) / 100);
 
         results.push({
-            initialValue: initialValue,
-            initialContribution: initialContribution, 
-            monthValue: initialValue + initialContribution,
+            initialValue,
+            initialContribution, 
+            monthValue,
             monthlyInterest,
-            totalLine: totalLine
+            totalLine,
+            monthValueInterest: totalLine - monthValue
             })
 
         initialValue = totalLine;
@@ -45,7 +47,6 @@ function generateResults(){
 
     //Total applied with interest
     let resultTotalLine = results[numberMonths - 1].totalLine;
-    console.log(resultTotalLine);
 
     //Total gain
     let gainResults = Number(resultTotalLine).toFixed(2) - Number(totalApplied).toFixed(2);
@@ -54,7 +55,7 @@ function generateResults(){
     display_el.innerHTML = `
         <p>Total do valor aplicado: <span>R$ ${Number(totalApplied).toFixed(2).replace(".",",")}</span> </p>
         <p>Total do resgate após o vencimento: <span> R$ ${Number(resultTotalLine).toFixed(2).replace(".",",")}</span></p>
-        <p>Total de juros: <span> ${Number(gainResults).toFixed(2).replace(".",",")}</span></p>
+        <p>Total de juros acumulado: <span> ${Number(gainResults).toFixed(2).replace(".",",")}</span></p>
         `;
     display_el.style.display = 'block';
 
@@ -69,6 +70,7 @@ function generateResults(){
                     <th>Aporte</th>
                     <th>Valor do Mês</th>
                     <th>Juros</th>
+                    <th>Juros do Mês</th>
                     <th>Total Consolidado</th>
                 </tr>
             </thead>
@@ -81,6 +83,7 @@ function generateResults(){
                     <td>R$ ${result.initialContribution.toFixed(2).replace(".",",")}</td>
                     <td>R$ ${result.monthValue.toFixed(2).replace(".",",")}</td>
                     <td>${result.monthlyInterest.toFixed(2).replace(".",",")} %</td>
+                    <td>R$ ${result.monthValueInterest.toFixed(2).replace(".",",")}</td>
                     <td>R$ ${result.totalLine.toFixed(2).replace(".",",")}</td>
                 </tr>
                 `
@@ -89,7 +92,6 @@ function generateResults(){
         </table>
         `;
     displayTable_el.style.display = 'block';
-    
 }
 
 function getNumbers(id) {
