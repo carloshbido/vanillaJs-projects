@@ -6,10 +6,10 @@ function handle(e) {
     generateResults();
 }
 
-function generateResults(){
+function generateResults() {
     //Display Elements
-    let display_el = document.getElementById("results");
-    let displayTable_el = document.getElementById("results-table");
+    const display_el = document.getElementById("results");
+    const displayTable_el = document.getElementById("results-table");
 
     //Form Values
     let initialValue = getNumbers('initial-value');
@@ -19,7 +19,7 @@ function generateResults(){
 
     //Helpers
     let totalLine;
-    let results = [];
+    const results = [];
     let countMounth = 1;
 
     //Total applied without interest
@@ -43,17 +43,15 @@ function generateResults(){
         initialValue = totalLine;
     }
 
-    console.log(results);
-
     //Total applied with interest
-    let resultTotalLine = results[numberMonths - 1].totalLine;
+    const resultTotalLine = results[numberMonths - 1].totalLine;
 
     //Total gain
-    let gainResults = Number(resultTotalLine).toFixed(2) - Number(totalApplied).toFixed(2);
+    const gainResults = Number(resultTotalLine).toFixed(2) - Number(totalApplied).toFixed(2);
 
     //Print Display
     display_el.innerHTML = `
-        <p>Total do valor aplicado: <span>R$ ${Number(totalApplied).toFixed(2).replace(".",",")}</span> </p>
+        <p>Total do valor aplicado sem Juros: <span>R$ ${Number(totalApplied).toFixed(2).replace(".",",")}</span> </p>
         <p>Total do resgate após o vencimento: <span> R$ ${Number(resultTotalLine).toFixed(2).replace(".",",")}</span></p>
         <p>Total de juros acumulado: <span> ${Number(gainResults).toFixed(2).replace(".",",")}</span></p>
         `;
