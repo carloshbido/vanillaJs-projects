@@ -7,34 +7,45 @@ function handle(e) {
 }
 
 function generateResults(){
+    //Display Elements
     let display_el = document.getElementById("results");
     let displayTable_el = document.getElementById("results-table");
-    let numberMonths = getNumbers('number-months');
+
+    //Form Values
     let initialValue = getNumbers('initial-value');
+    let initialContribution = getNumbers('initial-contribution');
     let monthlyInterest = getNumbers('monthly-interest');
+    let numberMonths = getNumbers('number-months');
+
+    //Helpers
     let totalLine;
     let results = [];
     let countMounth = 1;
 
-    //Total applied without interest 
-    let totalApplied = initialValue * numberMonths;
+    //Total applied without interest
+    let totalApplied = initialValue + (initialContribution * numberMonths);
 
     //Array results
     for(countMounth; countMounth <= numberMonths; countMounth++) {
-        totalLine = initialValue + ((initialValue * monthlyInterest) / 100)
-        results.push(
-            {initialValue: Number(initialValue.toFixed(2)), 
-             monthlyInterest, 
-             totalLine: Number(totalLine.toFixed(2))}
-            )
+
+        totalLine = initialValue + initialContribution + (((initialValue + initialContribution) * monthlyInterest) / 100)
+
+        results.push({
+            initialValue: initialValue,
+            initialContribution: initialContribution, 
+            monthValue: initialValue + initialContribution,
+            monthlyInterest,
+            totalLine: totalLine
+            })
+
         initialValue = totalLine;
     }
 
-    //Retirar ao final
     console.log(results);
 
     //Total applied with interest
-    let resultTotalLine = results.reduce((total, result) => total + result.totalLine, 0);
+    let resultTotalLine = results[numberMonths - 1].totalLine;
+    console.log(resultTotalLine);
 
     //Total gain
     let gainResults = Number(resultTotalLine).toFixed(2) - Number(totalApplied).toFixed(2);
@@ -54,7 +65,9 @@ function generateResults(){
             <thead> 
                 <tr>
                     <th>Mês</th>
+                    <th>Valor</th>
                     <th>Aporte</th>
+                    <th>Valor do Mês</th>
                     <th>Juros</th>
                     <th>Total Consolidado</th>
                 </tr>
@@ -65,6 +78,8 @@ function generateResults(){
                 <tr>
                     <td>${numberMask(index + 1)}</td>
                     <td>R$ ${result.initialValue.toFixed(2).replace(".",",")}</td>
+                    <td>R$ ${result.initialContribution.toFixed(2).replace(".",",")}</td>
+                    <td>R$ ${result.monthValue.toFixed(2).replace(".",",")}</td>
                     <td>${result.monthlyInterest.toFixed(2).replace(".",",")} %</td>
                     <td>R$ ${result.totalLine.toFixed(2).replace(".",",")}</td>
                 </tr>
@@ -74,8 +89,7 @@ function generateResults(){
         </table>
         `;
     displayTable_el.style.display = 'block';
-
-
+    
 }
 
 function getNumbers(id) {
