@@ -1,4 +1,6 @@
-var form = document.getElementById('form');
+const form = document.getElementById('form');
+
+//Form Action
 form.addEventListener('submit', handle);
 
 function handle(e) {
@@ -6,6 +8,7 @@ function handle(e) {
     generateResults();
 }
 
+// Results
 function generateResults() {
     //Display Elements
     const display_el = document.getElementById("results");
@@ -17,7 +20,7 @@ function generateResults() {
     let monthlyInterest = getNumbers('monthly-interest');
     let numberMonths = getNumbers('number-months');
 
-    //Helpers
+    //Helpers variables
     let totalLine;
     const results = [];
     let countMounth = 1;
@@ -90,18 +93,4 @@ function generateResults() {
         </table>
         `;
     displayTable_el.style.display = 'block';
-}
-
-function getNumbers(id) {
-    return Number(document.getElementById(id).value);
-}
-
-function numberMask(number) {
-    numberLength = number.toString().length;
-
-    if(numberLength == 1) {
-        numberLength = 2;
-    } 
-
-    return ('0' + number).slice(-numberLength);
 }
