@@ -5,9 +5,7 @@ function getNumbers(id) {
 function numberMask(number) {
     numberLength = number.toString().length;
 
-    if(numberLength == 1) {
-        numberLength = 2;
-    } 
-
+    if(numberLength == 1) numberLength = 2;
+    
     return ('0' + number).slice(-numberLength);
 }
