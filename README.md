@@ -1,4 +1,3 @@
-# VanillaJs-WebProjects
-All my vanilla projects 
+# VanillaJs-WebProject
 
 
