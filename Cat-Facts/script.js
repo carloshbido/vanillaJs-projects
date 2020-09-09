@@ -21,7 +21,7 @@ function getSomething() {
     //Create Counter
     count++;
     let span = document.querySelector('span');
-    span.innerText = count;
+    span.innerText = `Viewed facts ${count}`;
     
 } 
 
