@@ -54,9 +54,9 @@ function generateResults() {
 
     //Print Display
     display_el.innerHTML = `
-        <p>Total do valor aplicado sem Juros: <span>R$ ${Number(totalApplied).toFixed(2).replace(".",",")}</span> </p>
-        <p>Total do resgate após o vencimento: <span> R$ ${Number(resultTotalLine).toFixed(2).replace(".",",")}</span></p>
-        <p>Total de juros acumulado: <span> ${Number(gainResults).toFixed(2).replace(".",",")}</span></p>
+        <p>Total do valor aplicado sem Juros: <span> ${CurrencyMask(totalApplied)}</span> </p>
+        <p>Total do resgate após o vencimento: <span> ${CurrencyMask(resultTotalLine)}</span></p>
+        <p>Total de juros acumulado: <span> ${CurrencyMask(gainResults)}</span></p>
         `;
     display_el.style.display = 'block';
 
@@ -80,12 +80,12 @@ function generateResults() {
                 `
                 <tr>
                     <td>${numberMask(index + 1)}</td>
-                    <td>R$ ${result.initialValue.toFixed(2).replace(".",",")}</td>
-                    <td>R$ ${result.initialContribution.toFixed(2).replace(".",",")}</td>
-                    <td>R$ ${result.monthValue.toFixed(2).replace(".",",")}</td>
+                    <td>${CurrencyMask(result.initialValue)}</td>
+                    <td>${CurrencyMask(result.initialContribution)}</td>
+                    <td>${CurrencyMask(result.monthValue)}</td>
                     <td>${result.monthlyInterest.toFixed(2).replace(".",",")} %</td>
-                    <td>R$ ${result.monthValueInterest.toFixed(2).replace(".",",")}</td>
-                    <td>R$ ${result.totalLine.toFixed(2).replace(".",",")}</td>
+                    <td>${CurrencyMask(result.monthValueInterest)}</td>
+                    <td>${CurrencyMask(result.totalLine)}</td>
                 </tr>
                 `
                 ).join('')}
