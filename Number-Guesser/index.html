@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advinhe o número</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ==" crossorigin="anonymous" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Adivinhe o número...</h1>
+    <p>Adivinhe um número de <span id="min">1</span> a <span id="max">10</span></p>
+    <div class="form">
+      <input type="number" name="guess" id="guess" placeholder="Coloque sua escolha aqui">
+      <input type="submit" name="btn" id="btn" value="Enviar">
+    </div>
+    <p id="mensagem"></p>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
