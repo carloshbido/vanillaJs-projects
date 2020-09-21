@@ -1,7 +1,7 @@
 // Game Config
 const min = 1;
 const max = 10;
-const guesser = 2; // Update to Math.randow
+const guesser = Math.floor((Math.random() * (max - min + 1) + min));
 let chances = 3;
 
 // Set range nums to html
@@ -10,6 +10,8 @@ document.querySelector('#max').textContent = max;
 
 // Call Event
 document.querySelector('#btn').addEventListener('click', () => {
+
+  console.log(guesser);
 
   // Get number from User
   let UIchoiced = document.querySelector('#guess');
@@ -25,6 +27,7 @@ document.querySelector('#btn').addEventListener('click', () => {
   } else if (choiced === guesser) {
 
     showMessage('Você acertou!', 'green');
+    UIchoiced.disabled = true;
     document.querySelector('#btn').value = 'Reiniciar';
     document.querySelector('#btn').addEventListener('click', () => location.reload());
 
@@ -32,6 +35,7 @@ document.querySelector('#btn').addEventListener('click', () => {
   } else if (chances === 1) {
 
     showMessage('Game Over!', 'red')
+    UIchoiced.disabled = true;
     document.querySelector('#btn').value = 'Reiniciar';
     document.querySelector('#btn').addEventListener('click', () => location.reload());
 
