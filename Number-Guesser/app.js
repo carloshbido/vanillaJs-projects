@@ -11,8 +11,6 @@ document.querySelector('#max').textContent = max;
 // Call Event
 document.querySelector('#btn').addEventListener('click', () => {
 
-  console.log(guesser);
-
   // Get number from User
   let UIchoiced = document.querySelector('#guess');
   let choiced = parseInt(UIchoiced.value);
@@ -26,7 +24,7 @@ document.querySelector('#btn').addEventListener('click', () => {
     //Check if there is a winner
   } else if (choiced === guesser) {
 
-    showMessage('Você acertou!', 'green');
+    showMessage('Parabéns! Você acertou!', 'green');
     UIchoiced.disabled = true;
     document.querySelector('#btn').value = 'Reiniciar';
     document.querySelector('#btn').addEventListener('click', () => location.reload());
@@ -43,7 +41,9 @@ document.querySelector('#btn').addEventListener('click', () => {
   } else {
 
     --chances;
-    showMessage(`Você possui mais ${chances} chances`, 'blue');
+    showMessage(`Você possui mais ${chances} chances. Número escolhido ${choiced}`, 'blue');
+    UIchoiced.value = '';
+
   }
 
 })
@@ -58,6 +58,7 @@ function showMessage(msg, color) {
   UImsg.style.color = color;
   UImsg.textContent = msg;
   document.querySelector('#guess').style.borderColor = color;
+
 }
 
 
