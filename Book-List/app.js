@@ -1,4 +1,4 @@
-// Class Book
+// *** Class Book *** 
 class Book {
   constructor(name, author, id) {
     this.name = name;
@@ -7,54 +7,53 @@ class Book {
   }
 }
 
-//LocalStorage
+// *** Class Localstorage *** 
 
-// Class UI
+// *** Class UI *** 
 class UI {
-  static getBook() {
-    const local = [
+
+  static displayBooks() {
+    const bookListfromStorage = [
       {
         name: 'Book 1',
         author: 'Carlos Bido',
-        id: 235
+        id: '235'
       },
       {
         name: 'Book 2',
         author: 'João Garcia',
-        id: 145
-      }];
+        id: '145'
+      }
+    ]
 
-    const UIBooks = document.querySelector('#table-body');
-    let output;
-    const books = local;
+    const books = bookListfromStorage;
+    console.log(books) //Remove after the code have been ok
 
-    console.log(books) //Remove after
-
-    books.forEach((book) => {
-      output.innerHTML += `
-      <tr>  
-        <td>${book.name}</td>
-        <td>${book.author}</td>
-        <td>${book.id}</td>
-        <td>delete</td>
-      </tr>
-      `;
-    })
-
-    UIBooks.appendChild(output);
+    books.forEach((book) => UI.addBooktoList(book));
   }
 
-  static addBook() {
+  static addBooktoList(book) {
+    const UI_tableBody = document.querySelector('#table-body');
 
+    const row = document.createElement('tr');
+
+    row.innerHTML = `
+      <td>${book.name}</td>
+      <td>${book.author}</td>
+      <td>${book.id}</td>
+      <td><a href="#" class="btn btn-warning btn-sm delete"> X </a></td>`;
+
+    console.log(row)
+
+    console.log(UI_tableBody);
+    UI_tableBody.appendChild(row);
   }
-
-  static removeBook() {
-
-  }
-
 
 }
 
-// Listeners
+// Event: Display Books
+document.addEventListener('DOMContentLoaded', UI.displayBooks);
 
-UI.getBook();
+// Event: Remove Book
+
+// Event: Add Book
