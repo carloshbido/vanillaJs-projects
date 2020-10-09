@@ -1,4 +1,4 @@
-// *** Class Book *** 
+//CLASS BOOK
 class Book {
   constructor(name, author, id) {
     this.name = name;
@@ -7,9 +7,9 @@ class Book {
   }
 }
 
-// *** Class Localstorage *** 
+//CLASS LOCALSTORAGE
 
-// *** Class UI *** 
+// CLASS UI
 class UI {
 
   static displayBooks() {
@@ -40,6 +40,7 @@ class UI {
       <td>${book.id}</td>
       <td><a href="#" class="btn btn-warning btn-sm delete"> X </a></td>
       `;
+
     UI_tableBody.appendChild(row);
   }
 
@@ -51,10 +52,10 @@ class UI {
 
 }
 
-// Event: Display Books
+// EVENT: DISPLAY BOOKS
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
 
-// Event: Add Book
+// EVENT: ADD BOOK
 document.querySelector('#book-form').addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -63,17 +64,49 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
   const author = document.querySelector('#author').value;
   const id = document.querySelector('#id').value;
 
-  //Instantiate a book
-  const book = new Book(name, author, id);
+  if (name == '' || author == '' || id == '') {
 
-  // Add in the UI List
-  UI.addBooktoList(book);
+    alertMessage('Não deixe nenhum campo em branco', 'danger');
 
-  // Clear Fields
-  UI.clearFileds();
+  } else {
+
+    //Instantiate a book
+    const book = new Book(name, author, id);
+
+    // Add in the UI List
+    UI.addBooktoList(book);
+
+    //Show success message
+    alertMessage('Livro adicionado com sucesso', 'success');
+
+    // Clear Form´s fields
+    UI.clearFileds();
+  }
 });
 
-// Event: Remove Book
+// EVENT: REMOVE BOOK
+
+
+//FUNCTION TO SHOW ALERTS
+function alertMessage(msg, type) {
+  //Created alert div
+  const div = document.createElement('div');
+  div.className = `alert alert-${type}`;
+  div.textContent = msg;
+
+  // get html elemets to append
+  card = document.querySelector('.form');
+  form = document.querySelector('#book-form');
+
+  //show message for users
+  card.insertBefore(div, form);
+
+  //Vanish message in 2 sec
+  setTimeout(() => document.querySelector('.alert').remove(), 3000);
+}
+
+
+
 
 
 
