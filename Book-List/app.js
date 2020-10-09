@@ -44,6 +44,12 @@ class UI {
     UI_tableBody.appendChild(row);
   }
 
+  static deleteBooktoList(element) {
+    if (element.classList.contains('delete')) {
+      element.parentElement.parentElement.remove();
+    }
+  }
+
   static clearFileds() {
     document.querySelector('#name').value = '';
     document.querySelector('#author').value = '';
@@ -85,7 +91,15 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 });
 
 // EVENT: REMOVE BOOK
+document.querySelector('#table-body').addEventListener('click', (e) => {
 
+  e.preventDefault();
+  UI.deleteBooktoList(e.target);
+
+  // Message with book´s id
+  const id = e.target.parentElement.previousElementSibling.textContent;
+  alertMessage(`Livro ID: ${id} deletado com sucesso`, 'success');
+})
 
 //FUNCTION TO SHOW ALERTS
 function alertMessage(msg, type) {
