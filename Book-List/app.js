@@ -8,29 +8,53 @@ class Book {
 }
 
 //CLASS LOCALSTORAGE
+class Storage {
+
+  static getBooks() {
+
+    let books;
+
+    if (localStorage.getItem('books') === null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem('books'));
+    }
+
+    return books;
+  }
+
+  static addBook(book) {
+
+    const books = Storage.getBooks();
+    books.push(book);
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+
+  static removeBook(id) {
+    const books = Storage.getBooks();
+
+    books.forEach((book, index) => {
+      if (book.id === id) {
+        books.splice(index, 1);
+      }
+    })
+
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+
+}
 
 // CLASS UI
 class UI {
 
   static displayBooks() {
-    const bookListfromStorage = [
-      {
-        name: 'Book 1',
-        author: 'Carlos Bido',
-        id: '235'
-      },
-      {
-        name: 'Book 2',
-        author: 'João Garcia',
-        id: '145'
-      }
-    ]
 
-    const books = bookListfromStorage;
+    const books = Storage.getBooks();
     books.forEach((book) => UI.addBooktoList(book));
   }
 
   static addBooktoList(book) {
+
     const UI_tableBody = document.querySelector('#table-body');
     const row = document.createElement('tr');
 
@@ -45,9 +69,28 @@ class UI {
   }
 
   static deleteBooktoList(element) {
+
     if (element.classList.contains('delete')) {
       element.parentElement.parentElement.remove();
     }
+
+  }
+
+  static alertMessage(msg, type) {
+    //Created alert div
+    const div = document.createElement('div');
+    div.className = `alert alert-${type}`;
+    div.textContent = msg;
+
+    // get html elemets to append
+    const card = document.querySelector('.form');
+    const form = document.querySelector('#book-form');
+
+    //show message for users
+    card.insertBefore(div, form);
+
+    //Vanish message in 2,5 sec
+    setTimeout(() => document.querySelector('.alert').remove(), 2500);
   }
 
   static clearFileds() {
@@ -55,6 +98,8 @@ class UI {
     document.querySelector('#author').value = '';
     document.querySelector('#id').value = '';
   }
+
+
 
 }
 
@@ -82,8 +127,11 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
     // Add in the UI List
     UI.addBooktoList(book);
 
+    //Add book to Storage
+    Storage.addBook(book);
+
     //Show success message
-    alertMessage('Livro adicionado com sucesso', 'success');
+    UI.alertMessage('Livro adicionado com sucesso', 'success');
 
     // Clear Form´s fields
     UI.clearFileds();
@@ -94,30 +142,17 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 document.querySelector('#table-body').addEventListener('click', (e) => {
 
   e.preventDefault();
+
+  //remove book from UI
   UI.deleteBooktoList(e.target);
+
+  //Remove book to Storage
+  Storage.removeBook(e.target.parentElement.previousElementSibling.textContent);
 
   // Message with book´s id
   const id = e.target.parentElement.previousElementSibling.textContent;
-  alertMessage(`Livro ID: ${id} deletado com sucesso`, 'success');
+  UI.alertMessage(`Livro ID: ${id} deletado com sucesso`, 'success');
 })
-
-//FUNCTION TO SHOW ALERTS
-function alertMessage(msg, type) {
-  //Created alert div
-  const div = document.createElement('div');
-  div.className = `alert alert-${type}`;
-  div.textContent = msg;
-
-  // get html elemets to append
-  card = document.querySelector('.form');
-  form = document.querySelector('#book-form');
-
-  //show message for users
-  card.insertBefore(div, form);
-
-  //Vanish message in 2 sec
-  setTimeout(() => document.querySelector('.alert').remove(), 3000);
-}
 
 
 
