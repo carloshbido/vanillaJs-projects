@@ -30,10 +30,21 @@ small {
 }
 
 button {
+  font-size: 18px;
   padding: 10px 15px;
   background-color: #183B5C;
   border: none;
   border-radius: 3px;
+  transition: background-color ease .5s;
+}
+
+button:hover {
+  color: #183B5C;
+  background-color: white;
+}
+
+button:active {
+  transform: scale(0.97);
 }
 
 input {
