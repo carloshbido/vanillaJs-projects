@@ -19,11 +19,17 @@ header {
   font-weight: bolder;
 }
 
-header p {
+header textarea {
+  margin-top: 20px;
   font-size: 20px;
+  border:  none;
+  resize: none;
+  background-color: transparent;
+  text-align: center;
+  outline: 0;
 }
 
-.square {
+.circle {
   width: 300px;
   height: 300px;
   border-radius: 50%;
