@@ -7,7 +7,7 @@ const filmSelected = document.querySelector('select')
 let valueFilm = filmSelected.value;
 
 //Click Seats
-seats.forEach((seat, index) => {
+seats.forEach(seat => {
 
   seat.addEventListener('click', (e) => {
   
@@ -28,11 +28,9 @@ function updateSeatsSelected() {
 
   seats.forEach(element => {
 
-    const wasClickedInsideSeats = 
-      element.parentNode.parentNode.classList.contains('seats');
+    const wasClickedInsideSeats =  element.parentNode.parentNode.classList.contains('seats');
 
-    const isSeatSelected = 
-      element.classList.contains('selected'); 
+    const isSeatSelected =  element.classList.contains('selected'); 
 
     if (isSeatSelected && wasClickedInsideSeats)
       index = index + 1;
