@@ -21,6 +21,7 @@ seats.forEach((seat, index) => {
   })
 })
 
+// Verify quantity of seats selecteded
 function updateSeatsSelected() {
 
   let index = 0;
@@ -41,6 +42,7 @@ function updateSeatsSelected() {
   return index
 }
 
+//Update total $
 function updateTotal() {
 
   const totalSeatSelected = updateSeatsSelected()
@@ -48,6 +50,7 @@ function updateTotal() {
   
 }
 
+//Event when user select a movie option
 filmSelected.addEventListener('input', () => {
 
   valueFilm = filmSelected.value;
