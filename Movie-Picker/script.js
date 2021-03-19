@@ -29,7 +29,6 @@ function updateSeatsSelected() {
   seats.forEach(element => {
 
     const wasClickedInsideSeats =  element.parentNode.parentNode.classList.contains('seats');
-
     const isSeatSelected =  element.classList.contains('selected'); 
 
     if (isSeatSelected && wasClickedInsideSeats)
