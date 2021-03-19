@@ -43,14 +43,14 @@ h2 {
 }
 
 .showcase {
-  display: flex;
   background-color: var(--background-showcase);
-  padding: 10px;
+  width: 400px;
   margin-bottom: 30px;
+  padding: 10px;
+  border-radius: var(--border-radius-panel);
+  display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 400px;
-  border-radius: var(--border-radius-panel);
 }
 
 .showcase-seat {
@@ -105,8 +105,8 @@ h2 {
 .panel-total {
   background-color: var(--background-showcase);
   margin-top: 30px;
-  padding: 10px 20px;
   width: 200px;
+  padding: 10px 20px;
   border-radius: var(--border-radius-panel);
   text-align: center;
 }
