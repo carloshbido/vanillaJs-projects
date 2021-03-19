@@ -2,6 +2,7 @@
 
 :root {
   --background-showcase:  rgba(0, 0, 0, 0.2);
+  --border-radius-panel: 5px;
 }
 
 * {
@@ -15,7 +16,7 @@ body {
   color: white;
 }
 
-h1 {
+h2 {
   margin: 0;
 }
 
@@ -33,9 +34,12 @@ h1 {
 }
 
 .movie-picker select {
-  font-size: 18px;
-  padding: 3px;
+  font-size: 19px;
+  margin-left: 5px;
+  padding: 5px;
   outline: none;
+  border: none;
+  border-radius: var(--border-radius-panel);
 }
 
 .showcase {
@@ -46,6 +50,7 @@ h1 {
   justify-content: space-around;
   align-items: center;
   width: 400px;
+  border-radius: var(--border-radius-panel);
 }
 
 .showcase-seat {
@@ -81,7 +86,12 @@ h1 {
 
 .seat:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.2);
+}
+
+.seat.occupied:hover {
+  cursor: auto;
+  transform: scale(1);
 }
 
 .seat.occupied {
@@ -93,9 +103,12 @@ h1 {
 }
 
 .panel-total {
-  margin-top: 30px;
   background-color: var(--background-showcase);
+  margin-top: 30px;
   padding: 10px 20px;
+  width: 200px;
+  border-radius: var(--border-radius-panel);
+  text-align: center;
 }
 
 #total {
