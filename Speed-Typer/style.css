@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #003268; 
+  --secondary-color: #FF5D40; 
+  --primary-color-hover: #00295B;
+  --secondary-color-hover: #E93F24;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  background-color: var(--secondary-color);
+  height: 80px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+header label {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+header select {
+  outline: 0;
+  border: none;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 20px;
+  width: 150px;
+}
+
+header select option {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 15px;
+}
+
+button {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  outline: 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: var(--secondary-color-hover);
+}
+
+.container {
+  position: relative;
+  margin-top: 150px;
+  text-align: center;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+  width: 450px;
+  height: 250px;
+  border-radius: 3px;
+  padding: 15px 30px;
+  border: 1px solid var(--primary-color-hover);
+}
+
+h2 {
+  background-color: var(--primary-color-hover);
+  width: inherit;
+  margin: 0;
+  padding: 10px;
+}
+
+#word {
+  font-size: 40px;
+  font-weight: bold;
+  color: var(--secondary-color);
+  margin-top: 45px;
+}
+
+form input {
+  margin-top: 20px;
+  padding: 10px;
+  width: 80%;
+  outline: 0;
+  border-radius: 3px;
+  border: none;
+  font-size: 18px;
+}
+
+.timer {
+  position: absolute;
+  bottom: 150px;
+}
+
+.score {
+  position: absolute;
+  bottom: 150px;
+  left: 350px;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  <title>Speed Typer</title>
+</head>
+<body>
+  
+  <header>
+      <label for="dificult">Difficult</label>
+      <select id="dificult">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+  </header>
+
+  <div class="container">
+  
+    <div class="play-game">
+      <h2>Speed Typer</h2>
+      <p id="word">Word</p>
+      <form id="form">
+        <input type="text">
+      </form>
+      <p class="timer">Time: <span id="timer">10s</span></p>
+      <p class="score">Score: <span id="score">0</span></p>
+    </div>
+
+    <div id="game-over"></div>
+  </div>
+  
+  <button><i class="fas fa-cog"></i></button>
+
+  <script src="script.js"></script>
+</body>
+</html>

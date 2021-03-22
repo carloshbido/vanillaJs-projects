@@ -16,16 +16,16 @@ body {
   color: white;
 }
 
-h2 {
-  margin: 0;
-}
-
 .container {
   display:flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+
+h2 {
+  margin: 0;
 }
 
 .movie-picker {
