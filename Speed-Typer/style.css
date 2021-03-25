@@ -14,23 +14,31 @@
 }
 
 body {
-  background-color: var(--primary-color);
+   background-color: var(--primary-color);
   color: #fff;
   font-family: 'Open Sans', sans-serif;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
 }
 
 header {
   background-color: var(--secondary-color);
   height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin: auto;
+  align-items: center;
+  transform: translateY(0);
+  transition: transform .3s ease-in-out;
+}
+
+header.hide {
+  transform: translateY(-100%);
 }
 
 header label {
@@ -54,9 +62,6 @@ header select option {
 }
 
 button {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
   background-color: var(--secondary-color);
   color: white;
   padding: 10px 20px;
@@ -65,22 +70,36 @@ button {
   outline: 0;
   cursor: pointer;
   font-size: 20px;
+  transform: scale(1);
+  transition: transform .1s ease;
+}
+
+.cog-button {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
 }
 
 button:hover {
   background-color: var(--secondary-color-hover);
 }
 
+button:active {
+  transform: scale(0.9);
+}
+
 .container {
   position: relative;
-  margin-top: 150px;
   text-align: center;
   box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
-  width: 450px;
+  width: 600px;
   height: 250px;
   border-radius: 3px;
-  padding: 15px 30px;
   border: 1px solid var(--primary-color-hover);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 h2 {
@@ -88,16 +107,18 @@ h2 {
   width: inherit;
   margin: 0;
   padding: 10px;
+  top: 0;
+  position: absolute;
 }
 
-#word {
+.random-word {
   font-size: 40px;
   font-weight: bold;
   color: var(--secondary-color);
   margin-top: 45px;
 }
 
-form input {
+.word-writting {
   margin-top: 20px;
   padding: 10px;
   width: 80%;
@@ -109,11 +130,29 @@ form input {
 
 .timer {
   position: absolute;
-  bottom: 150px;
+  top: 65px;
+  left: 20px;
 }
 
 .score {
   position: absolute;
-  bottom: 150px;
-  left: 350px;
+  top: 65px;
+  right: 20px;
+}
+
+#game-over {
+  display: none;
+  background-color: var(--primary-color-hover);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: inherit;
+  width: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#game-over button {
+  margin-top: 40px;
 }
