@@ -6,6 +6,7 @@ const wordWritting = document.querySelector('[data-js="word-writting"]')
 const timeContent = document.getElementById('time-content');
 const scoreContent = document.getElementById('score-content');
 const gameOverUi = document.getElementById('game-over')
+const definition = document.querySelector('.definition');
 
 //Focus on main input
 wordWritting.focus();
@@ -15,18 +16,12 @@ let score = 0;
 let time = 10;
 
 // arr of words
-const words = [
-  'Amarelo',
-  'Azul',
-  'Roxo',
-  'Vermelho',
-  'Laranja',
-  'Verde',
-  'Preto',
-  'Branco',
-  'Cinza',
-  'Marrom'
-]
+async function getDataFromAPI() {
+  const response = await fetch('https://random-words-api.vercel.app/word')
+  const data = await response.json();
+
+  return data;
+}
 
 function addScore() {
   score++
@@ -40,32 +35,42 @@ function decrementTime() {
     clearInterval(timerLeft)
     gamerOver()
   }
-
 }
 
 function incrementTime() {
   const difficult = selectDifficult.value;
-  
+
   switch (difficult) {
     case 'easy':
-      time =+ 10;
+      time =+ 20;
       break;
 
     case 'medium':
-      time =+ 5;
+      time =+ 10;
       break;
   
     default:
-      time =+ 2;
+      time =+ 5;
       break;
   }
 };
 
-function randomWords() {
-  const randomPosition = Math.floor(Math.random() * words.length);
-  randomWord.textContent = words[randomPosition]
+async function randomWords() {
+  const data = await getDataFromAPI();
+  randomWord.textContent = data[0].word
+  definition.innerHTML = `<p><strong>Definition: </strong> ${data[0].definition}`;
 
-  return words[randomPosition];
+  return data;
+}
+
+
+function gamerOver() {
+  gameOverUi.style.display = 'flex';
+
+  gameOverUi.innerHTML = `
+  <h1> Time ran out </h1>
+  <button onclick='location.reload()'>Click to restart</button>
+  `
 }
 
 function hideAndShowHeader() {
@@ -86,19 +91,10 @@ function checkWrittingWord(e) {
   }
 }
 
-function gamerOver() {
-  gameOverUi.style.display = 'flex';
-
-  gameOverUi.innerHTML = `
-  <h1> Time ran out </h1>
-  <button onclick='location.reload()'>Click to restart</button>
-  `
-}
-
 //Events 
 buttom.addEventListener('click', hideAndShowHeader)
 wordWritting.addEventListener('input', checkWrittingWord)
 
 //Init  
 randomWords()
-let timerLeft = setInterval(decrementTime,1000);
+let timerLeft = setInterval(decrementTime, 1000);

@@ -93,7 +93,7 @@ button:active {
   text-align: center;
   box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
   width: 600px;
-  height: 250px;
+  height: 300px;
   border-radius: 3px;
   border: 1px solid var(--primary-color-hover);
   display: flex;
@@ -155,4 +155,8 @@ h2 {
 
 #game-over button {
   margin-top: 40px;
+}
+
+.definition {
+  margin-top: 10px;
 }
