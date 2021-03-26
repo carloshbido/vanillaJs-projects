@@ -10,3 +10,7 @@ MoviePicker | [Live Demo](https://carloshbido.github.io/VanillaJs-WebProjects/Mo
 TaskList | [Live Demo](https://carloshbido.github.io/VanillaJs-WebProjects/TaskList)
 
 ColorsMouse | [Live Demo](https://carloshbido.github.io/VanillaJs-WebProjects/Colors-Mouse)
+
+BookList | [Live Demo](https://carloshbido.github.io/VanillaJs-WebProjects/Book-List)
+
+Number-Guesser | [Live Demo](https://carloshbido.github.io/VanillaJs-WebProjects/Number-Guesser)
