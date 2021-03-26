@@ -13,4 +13,6 @@ ColorsMouse | [Live Demo](https://carloshbido.github.io/VanillaJs-WebProjects/Co
 
 BookList | [Live Demo](https://carloshbido.github.io/VanillaJs-WebProjects/Book-List)
 
-Number-Guesser | [Live Demo](https://carloshbido.github.io/VanillaJs-WebProjects/Number-Guesser)
+NumberGuesser | [Live Demo](https://carloshbido.github.io/VanillaJs-WebProjects/Number-Guesser)
+
+LoanCalculator | [Live Demo](https://carloshbido.github.io/VanillaJs-WebProjects/Loan-Calulator)
