@@ -3,16 +3,6 @@
 All my practical Vanilla JS projects.
 Study and practice projects to keep my code sharp =)
 
-Speed Typer | [Live Demo](https://carloshbido.github.io/VanillaJs-WebProjects/Speed-Typer)
+Speed Typer | [Live Demo](https://nostalgic-northcutt-9be881.netlify.app/)
 
-MoviePicker | [Live Demo](https://carloshbido.github.io/VanillaJs-WebProjects/Movie-Picker/)
-
-TaskList | [Live Demo](https://carloshbido.github.io/VanillaJs-WebProjects/TaskList)
-
-ColorsMouse | [Live Demo](https://carloshbido.github.io/VanillaJs-WebProjects/Colors-Mouse)
-
-BookList | [Live Demo](https://carloshbido.github.io/VanillaJs-WebProjects/Book-List)
-
-NumberGuesser | [Live Demo](https://carloshbido.github.io/VanillaJs-WebProjects/Number-Guesser)
-
-LoanCalculator | [Live Demo](https://carloshbido.github.io/VanillaJs-WebProjects/Loan-Calulator)
+MoviePicker | [Live Demo](https://https://xenodochial-keller-fa6b58.netlify.app/)
